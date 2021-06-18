@@ -56,23 +56,23 @@
                                                         <constraint firstItem="1TN-Wc-yvC" firstAttribute="top" secondItem="Ani-QN-9ZB" secondAttribute="top" id="iK2-yc-VrQ"/>
                                                     </constraints>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-0e-SuC">
-                                                    <rect key="frame" x="360" y="34" width="14" height="18.5"/>
-                                                    <color key="tintColor" systemColor="systemGrayColor"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-Gj-SuK">
+                                                    <rect key="frame" x="360" y="32" width="14" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="spb-Il-xdd"/>
-                                                        <constraint firstAttribute="width" constant="14" id="tyU-k7-jbG"/>
+                                                        <constraint firstAttribute="width" constant="14" id="1pM-AW-bez"/>
+                                                        <constraint firstAttribute="height" constant="22" id="nAo-ho-fG0"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <state key="normal" title="Button" image="chevron.right" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CGm-0e-SuC" secondAttribute="trailing" constant="20" id="BZ7-7f-lRD"/>
+                                                <constraint firstItem="MiJ-Gj-SuK" firstAttribute="centerY" secondItem="iag-gZ-gWc" secondAttribute="centerY" id="Ns4-Xk-VYh"/>
                                                 <constraint firstAttribute="bottom" secondItem="ubH-GZ-eWN" secondAttribute="bottom" constant="6" id="Sin-uE-RuC"/>
                                                 <constraint firstItem="ubH-GZ-eWN" firstAttribute="top" secondItem="iag-gZ-gWc" secondAttribute="top" constant="6" id="ZWi-0p-N3v"/>
                                                 <constraint firstItem="ubH-GZ-eWN" firstAttribute="leading" secondItem="iag-gZ-gWc" secondAttribute="leading" constant="20" id="aBq-V0-YUT"/>
                                                 <constraint firstItem="Ani-QN-9ZB" firstAttribute="centerY" secondItem="iag-gZ-gWc" secondAttribute="centerY" id="eYs-VT-LUN"/>
                                                 <constraint firstItem="Ani-QN-9ZB" firstAttribute="leading" secondItem="ubH-GZ-eWN" secondAttribute="trailing" constant="10" id="hpH-TC-5v6"/>
-                                                <constraint firstItem="CGm-0e-SuC" firstAttribute="centerY" secondItem="iag-gZ-gWc" secondAttribute="centerY" id="xZC-IT-2cq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MiJ-Gj-SuK" secondAttribute="trailing" constant="20" id="kfV-zQ-rS1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -97,11 +97,22 @@
                     <navigationItem key="navigationItem" title="Library" largeTitleDisplayMode="always" id="wa8-Md-vkt"/>
                     <connections>
                         <outlet property="tableView" destination="byU-o7-jRJ" id="X8P-u8-6nb"/>
+                        <segue destination="E34-GR-ut5" kind="show" id="A6b-5v-idY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="62.946428571428569"/>
+        </scene>
+        <!--pedro-->
+        <scene sceneID="VLs-f5-yfJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="pedro" id="E34-GR-ut5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MSI-Hb-KNg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EPM-Kw-YyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1554" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pGb-V9-UvF">
@@ -123,15 +134,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

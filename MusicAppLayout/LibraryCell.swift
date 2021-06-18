@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public class LibraryCell: UITableViewCell {
-    
+        
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
