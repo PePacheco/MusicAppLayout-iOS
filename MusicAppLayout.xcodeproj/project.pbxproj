@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		895F5368267D0F1B0060B1D1 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895F5367267D0F1B0060B1D1 /* LibraryViewController.swift */; };
+		89BF2663267D20D700EE39E6 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF2662267D20D700EE39E6 /* LibraryCell.swift */; };
 		89C9A1E2267BEC3B00D690E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C9A1E1267BEC3B00D690E0 /* AppDelegate.swift */; };
 		89C9A1E4267BEC3B00D690E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C9A1E3267BEC3B00D690E0 /* SceneDelegate.swift */; };
 		89C9A1E6267BEC3B00D690E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C9A1E5267BEC3B00D690E0 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		895F5367267D0F1B0060B1D1 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		89BF2662267D20D700EE39E6 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		89C9A1DE267BEC3B00D690E0 /* MusicAppLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAppLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C9A1E1267BEC3B00D690E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C9A1E3267BEC3B00D690E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				89C9A1EA267BEC3E00D690E0 /* Assets.xcassets */,
 				89C9A1EC267BEC3E00D690E0 /* LaunchScreen.storyboard */,
 				89C9A1EF267BEC3E00D690E0 /* Info.plist */,
+				895F5367267D0F1B0060B1D1 /* LibraryViewController.swift */,
+				89BF2662267D20D700EE39E6 /* LibraryCell.swift */,
 			);
 			path = MusicAppLayout;
 			sourceTree = "<group>";
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C9A1E6267BEC3B00D690E0 /* ViewController.swift in Sources */,
+				895F5368267D0F1B0060B1D1 /* LibraryViewController.swift in Sources */,
 				89C9A1E2267BEC3B00D690E0 /* AppDelegate.swift in Sources */,
+				89BF2663267D20D700EE39E6 /* LibraryCell.swift in Sources */,
 				89C9A1E4267BEC3B00D690E0 /* SceneDelegate.swift in Sources */,
 				89C9A1F7267BECDD00D690E0 /* MusicService.swift in Sources */,
 			);
