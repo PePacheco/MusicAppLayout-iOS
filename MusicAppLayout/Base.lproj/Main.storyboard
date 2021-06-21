@@ -63,6 +63,9 @@
                                                         <constraint firstAttribute="height" constant="22" id="nAo-ho-fG0"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="chevron.right" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapNext:" destination="FPR-Mk-PGd" eventType="touchUpInside" id="wBT-U6-LuB"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -97,17 +100,17 @@
                     <navigationItem key="navigationItem" title="Library" largeTitleDisplayMode="always" id="wa8-Md-vkt"/>
                     <connections>
                         <outlet property="tableView" destination="byU-o7-jRJ" id="X8P-u8-6nb"/>
-                        <segue destination="E34-GR-ut5" kind="show" id="A6b-5v-idY"/>
+                        <segue destination="E34-GR-ut5" kind="show" identifier="navigatePlaylistController" id="A6b-5v-idY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="62.946428571428569"/>
         </scene>
-        <!--pedro-->
+        <!--Playlist-->
         <scene sceneID="VLs-f5-yfJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="pedro" id="E34-GR-ut5" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Playlist" id="E34-GR-ut5" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="MSI-Hb-KNg"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPM-Kw-YyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
