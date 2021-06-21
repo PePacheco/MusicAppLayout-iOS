@@ -18,6 +18,7 @@ class AlbumPlaylistViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         albumPlaylistTableView.delegate = self
         albumPlaylistTableView.dataSource = self
         let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(didTapInfo))
