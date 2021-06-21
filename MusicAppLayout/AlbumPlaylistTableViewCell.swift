@@ -18,15 +18,9 @@ class AlbumPlaylistTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addImageGesture()
     }
     
-    func addImageGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
-        heartButton.addGestureRecognizer(tap)
-    }
-    
-    @objc func didTapImage() {
+    @IBAction func didTapLike(_ sender: Any) {
         guard let musicService = musicService, let music = music else {
             return
         }
