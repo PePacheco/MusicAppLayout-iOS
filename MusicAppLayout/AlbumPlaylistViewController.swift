@@ -18,12 +18,11 @@ class AlbumPlaylistViewController: UIViewController {
         super.viewDidLoad()
         albumPlaylistTableView.delegate = self
         albumPlaylistTableView.dataSource = self
-        guard let musicService = try? MusicService() else {
+        guard let musicService = try? MusicService(), let album = album else {
             self.musicService = nil
             self.album = nil
             return
         }
-        let album = musicService.loadLibrary()[1]
         self.musicService = musicService
         if let image = musicService.getCoverImage(forItemIded: album.id) {
             headerView.setup(image: image, albumTitle: album.title, artistName: "Album by " + album.mainPerson, songsCount: "\(album.musics.count) songs", release: "\(album.referenceDate)")
