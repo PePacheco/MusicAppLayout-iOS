@@ -32,12 +32,8 @@ class LibraryViewController: UIViewController, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navVC = segue.destination as? UINavigationController, segue.identifier == "navigatePlaylistController" {
-            if let vc = navVC.topViewController as? AlbumPlaylistViewController {
-                if let musicCollection = self.currentCollection {
-                    vc.album = musicCollection
-                }
-            }
+        if let vc = segue.destination as? AlbumPlaylistViewController, segue.identifier == "navigatePlaylistController", let musicCollection = self.currentCollection {
+            vc.album = musicCollection
         }
     }
     

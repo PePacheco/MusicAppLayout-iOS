@@ -9,15 +9,20 @@ import UIKit
 
 class AlbumPlaylistViewController: UIViewController {
     
+    // MARK: - Subviews
     var album: MusicCollection?
     var musicService: MusicService?
     @IBOutlet weak var albumPlaylistTableView: UITableView!
     @IBOutlet weak var headerView: PlaylistHeaderView!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         albumPlaylistTableView.delegate = self
         albumPlaylistTableView.dataSource = self
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(didTapInfo))
+        barButton.tintColor = .systemGreen
+        navigationItem.rightBarButtonItem = barButton
         guard let musicService = try? MusicService(), let album = album else {
             self.musicService = nil
             self.album = nil
@@ -29,6 +34,17 @@ class AlbumPlaylistViewController: UIViewController {
         }
         title = album.title
         self.album = album
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navVC = segue.destination as? UINavigationController, let vc = navVC.topViewController as? AlbumInfoViewController, segue.identifier == "navigatePlaylistDetails", let musicCollection = self.album {
+            vc.musicCollection = musicCollection
+        }
+    }
+    
+    // MARK: - Actions
+    @objc func didTapInfo() {
+        performSegue(withIdentifier: "navigatePlaylistDetails", sender: nil)
     }
 
 }
@@ -52,7 +68,7 @@ extension AlbumPlaylistViewController: UITableViewDataSource, UITableViewDelegat
         let isFavorite = musicService.favoriteMusics.contains(music)
         cell.music = music
         cell.musicService = musicService
-        cell.setup(image: image, artistName: music.artist, musicName: music.title, isFavorite: isFavorite)
+        cell.setUp(image: image, artistName: music.artist, musicName: music.title, isFavorite: isFavorite)
         return cell
     }
     
