@@ -37,7 +37,7 @@ class AlbumPlaylistTableViewCell: UITableViewCell {
         heartButton.tintColor = isFavorite ? .systemRed : . systemGray
     }
     
-    func setup(image: UIImage, artistName: String, musicName: String, isFavorite: Bool) {
+    func setUp(image: UIImage, artistName: String, musicName: String, isFavorite: Bool) {
         musicImageView.image = image
         musicNameLabel.text = musicName
         artistNameLabel.text = artistName
