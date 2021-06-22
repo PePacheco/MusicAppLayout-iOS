@@ -1,13 +1,13 @@
 //
-//  AlbumPlaylistTableViewCell.swift
+//  FavoritesTableViewCell.swift
 //  MusicAppLayout
 //
-//  Created by Pedro Gomes Rubbo Pacheco on 18/06/21.
+//  Created by Pedro Gomes Rubbo Pacheco on 21/06/21.
 //
 
 import UIKit
 
-class AlbumPlaylistTableViewCell: UITableViewCell {
+class FavoritesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var musicImageView: UIImageView!
     @IBOutlet weak var musicNameLabel: UILabel!
@@ -42,5 +42,6 @@ class AlbumPlaylistTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
 
 }
