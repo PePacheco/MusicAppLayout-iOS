@@ -79,6 +79,7 @@
                                             <outlet property="heartButton" destination="0qe-Z0-A3l" id="JWd-Ec-YI9"/>
                                             <outlet property="musicImageView" destination="ncg-eL-FfL" id="ZAM-KB-tIP"/>
                                             <outlet property="musicNameLabel" destination="GhM-8O-bll" id="DhR-rn-Nau"/>
+                                            <segue destination="sJI-ia-cLD" kind="presentation" id="Oh3-xM-b9M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,6 +170,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="89.732142857142847"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="f17-mS-vVp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" id="sJI-ia-cLD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohT-Rq-uUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="-326"/>
         </scene>
         <!--Album Info View Controller-->
         <scene sceneID="aZX-7l-Qmg">
