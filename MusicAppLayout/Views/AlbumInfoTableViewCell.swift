@@ -43,7 +43,11 @@ class AlbumInfoTableViewCell: UITableViewCell {
         albumNameLabel.text = musicCollection.title
         artistNamelabel.text = "Album by \(musicCollection.mainPerson)"
         countLabel.text = "\(musicCollection.musics.count) songs"
-        releaseDateLabel.text = "Released in \(musicCollection.referenceDate)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        releaseDateLabel.text = "Released in \(dateFormatter.string(from: musicCollection.referenceDate))"
         aboutLabel.text = musicCollection.albumDescription ?? ""
     }
 }

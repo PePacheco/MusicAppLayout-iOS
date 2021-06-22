@@ -65,9 +65,25 @@ struct Queue {
 // MARK: - MusicService
 
 final class MusicService {
+    private let allMusics: [Music]
     private var collections: Set<MusicCollection>
-    private(set) var favoriteMusics: [Music]
+    
+    /// The queue with the music being played and the next musics.
     private(set) var queue: Queue
+    
+    /// List of musics the user has favorited, in chronological order of addition to the favorite list.
+    private(set) var favoriteMusics: [Music] {
+        get {
+            let favoriteMusicsIDs = UserDefaults.standard.array(forKey: "favorite-musics-ids") as? [String] ?? []
+            return favoriteMusicsIDs.compactMap { musicID in
+                allMusics.first { $0.id == musicID }
+            }
+        }
+        set {
+            let musicsIDs = newValue.map(\.id)
+            UserDefaults.standard.set(musicsIDs, forKey: "favorite-musics-ids")
+        }
+    }
     
     init() throws {
         // may the superior entity (if such exists) forgive me for such terrible practice :'//
@@ -77,10 +93,7 @@ final class MusicService {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         self.collections = try decoder.decode(Set<MusicCollection>.self, from: data)
-        
-        let allMusics = collections.flatMap(\.musics)
-        let favoriteMusicsIDs = UserDefaults.standard.array(forKey: "favorite-musics-ids") as? [String] ?? []
-        self.favoriteMusics = allMusics.filter { favoriteMusicsIDs.contains($0.id) }
+        self.allMusics = collections.flatMap(\.musics)
         
         self.queue = Queue(nowPlaying: nil, collection: nil, nextInCollection: [], nextSuggested: [])
     }
@@ -119,15 +132,17 @@ final class MusicService {
     
     // MARK: Favorites
     
+    /// Toggles the favorite status of a music.
+    ///
+    /// - Parameters:
+    ///   - music: The music to be added to, or removed from, the list of favorite musics of the user.
+    ///   - isFavorite: Whether the music is favorited or not.
     func toggleFavorite(music: Music, isFavorite: Bool) {
         if isFavorite {
-            favoriteMusics.removeAll { $0 == music }
-        } else {
             favoriteMusics.append(music)
+        } else {
+            favoriteMusics.removeAll { $0 == music }
         }
-        
-        // update persisted list with IDs of favorite musics
-        UserDefaults.standard.setValue(favoriteMusics.map(\.id), forKey: "favorite-musics-ids")
     }
     
     // MARK: Playing/Queue

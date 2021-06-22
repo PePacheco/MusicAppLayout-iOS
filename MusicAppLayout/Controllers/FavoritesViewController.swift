@@ -77,8 +77,19 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.music = music
         cell.musicService = musicService
         cell.setUp(image: image, artistName: music.artist, musicName: music.title, isFavorite: isFavorite)
+        cell.delegate = self
         return cell
     }
     
+}
+
+extension FavoritesViewController: FavoritesTableViewCellDelegate {
     
+    func favoritesTableCellTapLike() {
+        guard let musicService = self.musicService else {
+            return
+        }
+        favoriteMusics = musicService.favoriteMusics
+        tableView.reloadData()
+    }
 }

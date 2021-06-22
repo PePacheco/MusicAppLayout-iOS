@@ -25,7 +25,7 @@ class AlbumPlaylistTableViewCell: UITableViewCell {
             return
         }
         var isFavorite = musicService.favoriteMusics.contains(music)
-        musicService.toggleFavorite(music: music, isFavorite: isFavorite)
+        musicService.toggleFavorite(music: music, isFavorite: !isFavorite)
         isFavorite = !isFavorite
         heartButton.setImage(isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal)
         heartButton.tintColor = isFavorite ? .systemRed : . systemGray
