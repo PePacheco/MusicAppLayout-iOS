@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="albumPlaylistTableView" destination="ySb-pk-Lry" id="HC9-Ui-rOc"/>
                         <outlet property="headerView" destination="MSf-sg-YiD" id="lxH-Xi-Y8Y"/>
+                        <outlet property="tableView" destination="ySb-pk-Lry" id="Fay-2C-Rqi"/>
                         <segue destination="M9y-dR-1HO" kind="presentation" identifier="navigatePlaylistDetails" id="FlJ-yB-0lG"/>
                         <segue destination="sJI-ia-cLD" kind="presentation" identifier="navigatePlayer" id="jbm-Iu-4Kr"/>
                     </connections>
