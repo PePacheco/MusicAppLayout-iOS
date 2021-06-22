@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rg1-He-fLH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3iw-gZ-I4w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="byU-o7-jRJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="library-cell" rowHeight="86" id="FPR-Mk-PGd" customClass="LibraryCell" customModule="MusicAppLayout" customModuleProvider="target">
@@ -62,6 +63,7 @@
                                                         <constraint firstAttribute="width" constant="14" id="1pM-AW-bez"/>
                                                         <constraint firstAttribute="height" constant="22" id="nAo-ho-fG0"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button" image="chevron.right" catalog="system"/>
                                                     <connections>
                                                         <action selector="didTapNext:" destination="FPR-Mk-PGd" eventType="touchUpInside" id="wBT-U6-LuB"/>
@@ -105,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886.95652173913049" y="62.946428571428569"/>
+            <point key="canvasLocation" x="1797.1014492753625" y="62.946428571428569"/>
         </scene>
         <!--Playlist-->
         <scene sceneID="VLs-f5-yfJ">
@@ -115,12 +117,25 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPM-Kw-YyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="63"/>
+            <point key="canvasLocation" x="2463.04347826087" y="62.946428571428569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
+        <scene sceneID="zET-CF-tlx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorites" id="YXS-Yj-9Lc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="roD-6y-lmq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxW-Cm-tIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="-627"/>
+        </scene>
+        <!--Library-->
         <scene sceneID="pGb-V9-UvF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rg1-He-fLH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" image="book.closed.fill" catalog="system" id="2nx-Ej-A37">
+                        <imageReference key="selectedImage" image="book.closed.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Wid-Ue-Rbg">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -133,16 +148,61 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndD-OU-OwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="62.946428571428569"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="muh-xa-efU">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3iw-gZ-I4w" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0wv-4s-qDB">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rg1-He-fLH" kind="relationship" relationship="viewControllers" id="zrA-Zh-nAG"/>
+                        <segue destination="VPg-N0-VXX" kind="relationship" relationship="viewControllers" id="iZp-9w-Sce"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IN0-mR-Vhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="62.946428571428569"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="vzp-mg-SHI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VPg-N0-VXX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" selectedImage="heart.fill" catalog="system" id="cex-Q8-gAF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hCl-aO-LII">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YXS-Yj-9Lc" kind="relationship" relationship="rootViewController" id="bQB-mU-pQS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4v-wN-UBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-627"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="heart.fill" width="128" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

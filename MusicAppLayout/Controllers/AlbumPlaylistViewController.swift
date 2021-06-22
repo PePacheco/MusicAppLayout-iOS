@@ -40,6 +40,8 @@ class AlbumPlaylistViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navVC = segue.destination as? UINavigationController, let vc = navVC.topViewController as? AlbumInfoViewController, segue.identifier == "navigatePlaylistDetails", let musicCollection = self.album {
             vc.musicCollection = musicCollection
+        } else if let navVC = segue.destination as? UINavigationController, let vc = navVC.topViewController as? PlayerViewController, segue.identifier == "navigatePlayer", let musicCollection = self.album {
+            vc.music = musicCollection.musics[sender as! Int]
         }
     }
     
@@ -73,4 +75,7 @@ extension AlbumPlaylistViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "navigatePlayer", sender: indexPath.row)
+    }
 }

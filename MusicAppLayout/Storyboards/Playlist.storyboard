@@ -164,11 +164,20 @@
                         <outlet property="albumPlaylistTableView" destination="ySb-pk-Lry" id="HC9-Ui-rOc"/>
                         <outlet property="headerView" destination="MSf-sg-YiD" id="lxH-Xi-Y8Y"/>
                         <segue destination="M9y-dR-1HO" kind="presentation" identifier="navigatePlaylistDetails" id="FlJ-yB-0lG"/>
+                        <segue destination="sJI-ia-cLD" kind="presentation" identifier="navigatePlayer" id="jbm-Iu-4Kr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="89.732142857142847"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="f17-mS-vVp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" id="sJI-ia-cLD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohT-Rq-uUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="-326"/>
         </scene>
         <!--Album Info View Controller-->
         <scene sceneID="aZX-7l-Qmg">
