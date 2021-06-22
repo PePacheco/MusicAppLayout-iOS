@@ -10,11 +10,13 @@ import UIKit
 class AlbumPlaylistViewController: UIViewController {
     
     // MARK: - Subviews
-    var album: MusicCollection?
-    var musicService: MusicService?
     @IBOutlet weak var albumPlaylistTableView: UITableView!
     @IBOutlet weak var headerView: PlaylistHeaderView!
     @IBOutlet weak var tableView: UITableView!
+    
+    var album: MusicCollection?
+    var musicService: MusicService?
+    var favoriteMusics: [Music] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -32,10 +34,19 @@ class AlbumPlaylistViewController: UIViewController {
         }
         self.musicService = musicService
         if let image = musicService.getCoverImage(forItemIded: album.id) {
-            headerView.setup(image: image, albumTitle: album.title, artistName: "Album by " + album.mainPerson, songsCount: "\(album.musics.count) songs", release: "\(album.referenceDate)")
+            headerView.setup(image: image, albumTitle: album.title, artistName: "Album by " + album.mainPerson, songsCount: "\(album.musics.count) songs", release: album.referenceDate)
         }
         title = album.title
         self.album = album
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let musicService = self.musicService else {
+            return
+        }
+        self.favoriteMusics = musicService.favoriteMusics.filter { $0.artist == album?.mainPerson }
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,7 +107,7 @@ extension AlbumPlaylistViewController: UITableViewDataSource, UITableViewDelegat
             return UITableViewCell()
         }
         let music = album.musics[indexPath.row]
-        let isFavorite = musicService.favoriteMusics.contains(music)
+        let isFavorite = self.favoriteMusics.contains(music)
         cell.music = music
         cell.musicService = musicService
         cell.setUp(image: image, artistName: music.artist, musicName: music.title, isFavorite: isFavorite)

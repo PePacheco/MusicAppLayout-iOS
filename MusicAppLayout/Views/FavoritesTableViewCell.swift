@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol FavoritesTableViewCellDelegate: AnyObject {
+    func favoritesTableCellTapLike()
+}
+
 class FavoritesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var musicImageView: UIImageView!
     @IBOutlet weak var musicNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
+    weak var delegate: FavoritesTableViewCellDelegate?
     var music: Music?
     var musicService: MusicService?
     
@@ -25,10 +30,11 @@ class FavoritesTableViewCell: UITableViewCell {
             return
         }
         var isFavorite = musicService.favoriteMusics.contains(music)
-        musicService.toggleFavorite(music: music, isFavorite: isFavorite)
-        isFavorite = !isFavorite
+        musicService.toggleFavorite(music: music, isFavorite: !isFavorite)
+        isFavorite.toggle()
         heartButton.setImage(isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal)
         heartButton.tintColor = isFavorite ? .systemRed : . systemGray
+        delegate?.favoritesTableCellTapLike()
     }
     
     func setUp(image: UIImage, artistName: String, musicName: String, isFavorite: Bool) {
@@ -42,6 +48,5 @@ class FavoritesTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 
 }
