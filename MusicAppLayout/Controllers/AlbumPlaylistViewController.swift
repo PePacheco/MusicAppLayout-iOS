@@ -14,6 +14,7 @@ class AlbumPlaylistViewController: UIViewController {
     var musicService: MusicService?
     @IBOutlet weak var albumPlaylistTableView: UITableView!
     @IBOutlet weak var headerView: PlaylistHeaderView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -56,6 +57,33 @@ extension AlbumPlaylistViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = self.album?.musics.count else {
             return 0
+        }
+        if count == 0 {
+            let view = UIView(frame: self.tableView.bounds)
+            let imageView = UIImageView(frame: CGRect(x: (self.tableView.bounds.size.width/2) - 35, y: (self.tableView.bounds.size.height/2)-50, width: 70, height: 70))
+            imageView.image = UIImage(systemName: "music.note.list")
+            imageView.tintColor = UIColor.systemRed
+            view.addSubview(imageView)
+            let messageLabel = UILabel(frame: CGRect(x: (self.tableView.bounds.size.width/2)-60, y: imageView.frame.maxY+10, width: 150, height: 35))
+            messageLabel.text = "No musics"
+            messageLabel.textColor = UIColor.label
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = NSTextAlignment.center
+            messageLabel.font = UIFont(name: "TrebuchetMS", size: 24)
+            messageLabel.sizeToFit()
+            view.addSubview(messageLabel)
+            let messageLabel2 = UILabel(frame: CGRect(x: (self.tableView.bounds.size.width/2)-150, y: messageLabel.frame.maxY+10, width: 300, height: 35))
+            messageLabel2.text = "You can add a music to this playlist from an album, another playlist or while the music is playing."
+            messageLabel2.textColor = UIColor.systemGray
+            messageLabel2.numberOfLines = 0
+            messageLabel2.textAlignment = NSTextAlignment.center
+            messageLabel2.font = UIFont(name: "TrebuchetMS", size: 15)
+            messageLabel2.sizeToFit()
+            view.addSubview(messageLabel2)
+            self.tableView.backgroundView = view
+            self.tableView.separatorStyle = .none
+        } else {
+            self.tableView.restore()
         }
         return count
     }

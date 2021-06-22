@@ -24,15 +24,43 @@ class FavoritesViewController: UIViewController {
         self.favoriteMusics = musicService.favoriteMusics
         self.musicService = musicService
         tableView.dataSource = self
+        tableView.delegate = self
         navigationController?.navigationBar.prefersLargeTitles = true
         // navigationItem.titleView = searchBar
     }
 }
 
-extension FavoritesViewController: UITableViewDataSource {
+extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = favoriteMusics?.count else {
             return 0
+        }
+        if count == 0 {
+            let view = UIView(frame: self.tableView.bounds)
+            let imageView = UIImageView(frame: CGRect(x: (self.tableView.bounds.size.width/2) - 35, y: (self.tableView.bounds.size.height/2)-50, width: 70, height: 70))
+            imageView.image = UIImage(systemName: "heart.slash")
+            imageView.tintColor = UIColor.systemRed
+            view.addSubview(imageView)
+            let messageLabel = UILabel(frame: CGRect(x: (self.tableView.bounds.size.width/2)-65, y: imageView.frame.maxY+10, width: 150, height: 35))
+            messageLabel.text = "No favorites"
+            messageLabel.textColor = UIColor.label
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = NSTextAlignment.center
+            messageLabel.font = UIFont(name: "TrebuchetMS", size: 24)
+            messageLabel.sizeToFit()
+            view.addSubview(messageLabel)
+            let messageLabel2 = UILabel(frame: CGRect(x: (self.tableView.bounds.size.width/2)-140, y: messageLabel.frame.maxY+10, width: 300, height: 35))
+            messageLabel2.text = "Save the musics you like and come back here to access them."
+            messageLabel2.textColor = UIColor.systemGray
+            messageLabel2.numberOfLines = 0
+            messageLabel2.textAlignment = NSTextAlignment.center
+            messageLabel2.font = UIFont(name: "TrebuchetMS", size: 15)
+            messageLabel2.sizeToFit()
+            view.addSubview(messageLabel2)
+            self.tableView.backgroundView = view
+            self.tableView.separatorStyle = .none
+        } else {
+            self.tableView.restore()
         }
         return count
     }
@@ -51,4 +79,6 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.setUp(image: image, artistName: music.artist, musicName: music.title, isFavorite: isFavorite)
         return cell
     }
+    
+    
 }
