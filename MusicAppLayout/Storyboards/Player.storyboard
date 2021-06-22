@@ -136,6 +136,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="albumImageView" destination="Vu3-u8-ayo" id="YTO-Wc-OEE"/>
+                        <outlet property="artistNameLabel" destination="hFj-z4-rPl" id="SUN-Wn-SEZ"/>
+                        <outlet property="musicNameLabel" destination="4GF-Ue-kv5" id="fTE-oB-VEJ"/>
                         <outlet property="slider" destination="ZnT-yu-zvw" id="I3O-2c-iqv"/>
                     </connections>
                 </viewController>
@@ -146,7 +149,6 @@
         <!--Navigation Controller-->
         <scene sceneID="wVy-Jp-X7O">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4LX-lh-rlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHU-wb-Nxv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VzC-vF-ZoD">
@@ -158,6 +160,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="0Yq-ga-vH6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LX-lh-rlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="101.78571428571428"/>
         </scene>

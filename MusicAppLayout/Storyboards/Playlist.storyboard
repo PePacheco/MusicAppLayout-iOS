@@ -79,7 +79,6 @@
                                             <outlet property="heartButton" destination="0qe-Z0-A3l" id="JWd-Ec-YI9"/>
                                             <outlet property="musicImageView" destination="ncg-eL-FfL" id="ZAM-KB-tIP"/>
                                             <outlet property="musicNameLabel" destination="GhM-8O-bll" id="DhR-rn-Nau"/>
-                                            <segue destination="sJI-ia-cLD" kind="presentation" id="Oh3-xM-b9M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -165,6 +164,7 @@
                         <outlet property="albumPlaylistTableView" destination="ySb-pk-Lry" id="HC9-Ui-rOc"/>
                         <outlet property="headerView" destination="MSf-sg-YiD" id="lxH-Xi-Y8Y"/>
                         <segue destination="M9y-dR-1HO" kind="presentation" identifier="navigatePlaylistDetails" id="FlJ-yB-0lG"/>
+                        <segue destination="sJI-ia-cLD" kind="presentation" identifier="navigatePlayer" id="jbm-Iu-4Kr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

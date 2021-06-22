@@ -119,6 +119,16 @@
             </objects>
             <point key="canvasLocation" x="2463.04347826087" y="62.946428571428569"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="zET-CF-tlx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorites" id="YXS-Yj-9Lc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="roD-6y-lmq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxW-Cm-tIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="-627"/>
+        </scene>
         <!--Library-->
         <scene sceneID="pGb-V9-UvF">
             <objects>
@@ -153,16 +163,38 @@
                     </tabBar>
                     <connections>
                         <segue destination="rg1-He-fLH" kind="relationship" relationship="viewControllers" id="zrA-Zh-nAG"/>
+                        <segue destination="VPg-N0-VXX" kind="relationship" relationship="viewControllers" id="iZp-9w-Sce"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN0-mR-Vhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="62.946428571428569"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="vzp-mg-SHI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VPg-N0-VXX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" selectedImage="heart.fill" catalog="system" id="cex-Q8-gAF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hCl-aO-LII">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YXS-Yj-9Lc" kind="relationship" relationship="rootViewController" id="bQB-mU-pQS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4v-wN-UBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-627"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="heart.fill" width="128" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
