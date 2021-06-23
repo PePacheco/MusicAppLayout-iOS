@@ -108,14 +108,12 @@ extension FavoritesViewController: UISearchBarDelegate {
         guard let favoritesMusic = self.favoriteMusics, let musicService = self.musicService else {
             return
         }
+        self.favoriteMusics = musicService.favoriteMusics
         if !searchText.isEmpty {
             self.favoriteMusics = favoritesMusic.filter{ music in
                 return music.title.lowercased().contains(searchText.lowercased()) ||  music.artist.lowercased().contains(searchText.lowercased())
             }
-            tableView.reloadData()
-        } else {
-            self.favoriteMusics = musicService.favoriteMusics
-            tableView.reloadData()
         }
+        tableView.reloadData()
     }
 }
