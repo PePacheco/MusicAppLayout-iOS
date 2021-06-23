@@ -133,6 +133,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6D6A838626839DD0004D2DBC /* nibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = nibs;
+			sourceTree = "<group>";
+		};
 		89C9A1D5267BEC3B00D690E0 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +159,7 @@
 		89C9A1E0267BEC3B00D690E0 /* MusicAppLayout */ = {
 			isa = PBXGroup;
 			children = (
+				6D6A838626839DD0004D2DBC /* nibs */,
 				6D63BF6826824DB3009FB5A7 /* Resources */,
 				6D63BF6726824DAA009FB5A7 /* Managers */,
 				6D63BF6626824D93009FB5A7 /* Views */,
