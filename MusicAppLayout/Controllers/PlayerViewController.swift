@@ -49,9 +49,9 @@ class PlayerViewController: UIViewController {
         guard let music = music, let musicService = try? MusicService() else {
             return
         }
-        
-        print(music.length.stringFromTimeInterval())
-        
+                
+        musicService.startPlaying(music: music)
+
         musicNameLabel.text = music.title
         artistNameLabel.text = music.artist
         
@@ -63,8 +63,6 @@ class PlayerViewController: UIViewController {
         
         totalTimeLabel.text = music.length.stringFromTimeInterval()
     }
-    
-
 }
 
 extension TimeInterval{
