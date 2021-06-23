@@ -24,7 +24,7 @@ class AlbumInfoTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard let musicService = try? MusicService() else {
+        guard let musicService = MusicService.shared else {
             self.musicService = nil
             return
         }

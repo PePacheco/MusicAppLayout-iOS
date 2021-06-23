@@ -67,6 +67,7 @@ struct Queue {
 final class MusicService {
     private let allMusics: [Music]
     private var collections: Set<MusicCollection>
+    static var shared: MusicService? = try? MusicService()
     
     /// The queue with the music being played and the next musics.
     private(set) var queue: Queue
@@ -85,7 +86,7 @@ final class MusicService {
         }
     }
     
-    init() throws {
+    private init() throws {
         // may the superior entity (if such exists) forgive me for such terrible practice :'//
         let mockDataUrl = Bundle.main.url(forResource: "data", withExtension: "json")!
         let data = try Data(contentsOf: mockDataUrl)
@@ -110,7 +111,6 @@ final class MusicService {
     
     func removeMusic(_ music: Music, from collection: MusicCollection) {
         guard collection.supportsEdition else { return }
-        
         // since MusicCollection is a value type (i.e. struct),
         // we need to remove the existing value from collections and then insert back the modified one
         collections.remove(collection)
