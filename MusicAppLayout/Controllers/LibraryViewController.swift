@@ -19,7 +19,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let musicService = try? MusicService() else {
+        guard let musicService = MusicService.shared else {
             self.collection = []
             return
         }

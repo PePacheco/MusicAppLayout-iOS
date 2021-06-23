@@ -10,23 +10,33 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var musicService: MusicService?
     var favoriteMusics: [Music]?
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let musicService = try? MusicService() else {
+        guard let musicService = MusicService.shared else {
             self.musicService = nil
             return
         }
-        self.favoriteMusics = musicService.favoriteMusics
         self.musicService = musicService
+        searchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         navigationController?.navigationBar.prefersLargeTitles = true
-        // navigationItem.titleView = searchBar
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let musicService = self.musicService {
+            self.favoriteMusics = musicService.favoriteMusics
+            tableView.reloadData()
+        }
     }
 }
 
@@ -84,12 +94,28 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension FavoritesViewController: FavoritesTableViewCellDelegate {
-    
     func favoritesTableCellTapLike() {
         guard let musicService = self.musicService else {
             return
         }
-        favoriteMusics = musicService.favoriteMusics
+        self.favoriteMusics = musicService.favoriteMusics
         tableView.reloadData()
+    }
+}
+
+extension FavoritesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let favoritesMusic = self.favoriteMusics, let musicService = self.musicService else {
+            return
+        }
+        if !searchText.isEmpty {
+            self.favoriteMusics = favoritesMusic.filter{ music in
+                return music.title.lowercased().contains(searchText.lowercased()) ||  music.artist.lowercased().contains(searchText.lowercased())
+            }
+            tableView.reloadData()
+        } else {
+            self.favoriteMusics = musicService.favoriteMusics
+            tableView.reloadData()
+        }
     }
 }

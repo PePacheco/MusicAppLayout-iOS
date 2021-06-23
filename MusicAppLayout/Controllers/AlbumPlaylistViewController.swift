@@ -27,14 +27,15 @@ class AlbumPlaylistViewController: UIViewController {
         let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(didTapInfo))
         barButton.tintColor = .systemGreen
         navigationItem.rightBarButtonItem = barButton
-        guard let musicService = try? MusicService(), let album = album else {
+        guard let musicService = MusicService.shared, let album = album else {
             self.musicService = nil
             self.album = nil
             return
         }
         self.musicService = musicService
         if let image = musicService.getCoverImage(forItemIded: album.id) {
-            headerView.setup(image: image, albumTitle: album.title, artistName: "Album by " + album.mainPerson, songsCount: "\(album.musics.count) songs", release: album.referenceDate)
+            let type = album.type == .playlist ? "Playlist" : "Album"
+            headerView.setup(image: image, albumTitle: album.title, artistName: "\(type) by " + album.mainPerson, songsCount: "\(album.musics.count) songs", release: album.referenceDate)
         }
         title = album.title
         self.album = album
@@ -116,5 +117,23 @@ extension AlbumPlaylistViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "navigatePlayer", sender: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let album = album, let musicService = musicService else {
+            return
+        }
+        if album.supportsEdition {
+            if editingStyle == .delete {
+                let music = album.musics[indexPath.row]
+                musicService.removeMusic(music, from: album)
+                self.album = musicService.getCollection(id: album.id)!
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        } else {
+            let alert = UIAlertController(title: "Oops", message: "You can't delete an album music", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in}))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
