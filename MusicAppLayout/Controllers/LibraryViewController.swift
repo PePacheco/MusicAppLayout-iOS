@@ -9,31 +9,30 @@ import UIKit
 
 //library-item
 
-class LibraryViewController: UIViewController, UITableViewDataSource {
+class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var collection: [MusicCollection] = []
     private var musicService: MusicService?
-    private var currentCollection: MusicCollection?
     
     @IBOutlet weak var tableView: UITableView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let musicService = try? MusicService() else {
+        guard let musicService = MusicService.shared else {
             self.collection = []
             return
         }
         
         self.collection = musicService.loadLibrary()
         self.musicService = musicService
-        
+        tableView.delegate = self
         tableView.dataSource = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? AlbumPlaylistViewController, segue.identifier == "navigatePlaylistController", let musicCollection = self.currentCollection {
-            vc.album = musicCollection
+        if let vc = segue.destination as? AlbumPlaylistViewController, segue.identifier == "navigatePlaylistController" {
+            vc.album = collection[sender as! Int]
         }
     }
     
@@ -50,16 +49,10 @@ class LibraryViewController: UIViewController, UITableViewDataSource {
         
         cell.setUp(title: collectionItem.title, subtitle: collectionItem.mainPerson, type: collectionItem.type.rawValue.localizedCapitalized, image: musicService?.getCoverImage(forItemIded: collectionItem.id) ?? nil, musicCollection: collectionItem)
         
-        cell.delegate = self
-        
         return cell
     }
     
-}
-
-extension LibraryViewController: LibraryCellDelegate {
-    func libraryCellDidTapNext(_ musicCollection: MusicCollection) {
-        self.currentCollection = musicCollection
-        performSegue(withIdentifier: "navigatePlaylistController", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "navigatePlaylistController", sender: indexPath.row)
     }
 }

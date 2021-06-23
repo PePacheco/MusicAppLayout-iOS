@@ -22,7 +22,7 @@ class ArtistInfoTableViewCell: UITableViewCell {
     
     func setUp(musicCollection: MusicCollection) {
         artistNameLabel.text = "About \(musicCollection.mainPerson)"
-        aboutArtistLabel.text = musicCollection.albumArtistDescription
+        aboutArtistLabel.text = musicCollection.albumDescription ?? "This artist does not have any description"
     }
 
 }

@@ -15,9 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="GAo-Bb-JyH">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favorite-music-cell" id="KbA-Sa-uqf" customClass="FavoritesTableViewCell" customModule="MusicAppLayout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="90.5"/>
+                                <rect key="frame" x="0.0" y="68.5" width="414" height="90.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KbA-Sa-uqf" id="0WB-tX-HRL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="90.5"/>
@@ -86,6 +91,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="always" id="Myn-9V-676"/>
                     <connections>
+                        <outlet property="searchBar" destination="GAo-Bb-JyH" id="Qcv-53-fW8"/>
                         <outlet property="tableView" destination="99x-0R-6TE" id="ZQa-zD-bUS"/>
                     </connections>
                 </viewController>

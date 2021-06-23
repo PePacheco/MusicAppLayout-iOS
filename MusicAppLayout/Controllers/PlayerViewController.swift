@@ -29,7 +29,7 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func onTapFavorite(_ sender: UIButton) {
-        guard let music = music, let musicService = try? MusicService() else {
+        guard let music = music, let musicService = MusicService.shared else {
             return
         }
         
@@ -46,7 +46,7 @@ class PlayerViewController: UIViewController {
         slider.setThumbImage(sliderThumb, for: .normal)
         slider.setThumbImage(sliderThumb, for: .highlighted)
         
-        guard let music = music, let musicService = try? MusicService() else {
+        guard let music = music, let musicService = MusicService.shared else {
             return
         }
                 

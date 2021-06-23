@@ -15,12 +15,16 @@ class PlaylistHeaderView: UIView {
     @IBOutlet weak var songsCountLabel: UILabel!
     @IBOutlet weak var releaseLabel: UILabel!
     
-    func setup(image: UIImage, albumTitle: String, artistName: String, songsCount: String, release: String) {
+    func setup(image: UIImage, albumTitle: String, artistName: String, songsCount: String, release: Date) {
         albumImageView.image = image
         albumTitleLabel.text = albumTitle
         artistNameLabel.text = artistName
         songsCountLabel.text = songsCount
-        releaseLabel.text = release
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        releaseLabel.text = "Released in \(dateFormatter.string(from: release))"
     }
     
 }
