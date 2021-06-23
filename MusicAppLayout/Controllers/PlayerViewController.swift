@@ -24,7 +24,6 @@ class PlayerViewController: UIViewController {
     
     @IBAction func onTapPlayerButton(_ sender: UIButton) {
         isPlaying.toggle()
-        
         playerButton.setImage(UIImage(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill"), for: .normal)
     }
     
@@ -42,7 +41,7 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         slider.setThumbImage(sliderThumb, for: .normal)
         slider.setThumbImage(sliderThumb, for: .highlighted)
         
@@ -51,6 +50,7 @@ class PlayerViewController: UIViewController {
         }
                 
         musicService.startPlaying(music: music)
+        print(musicService.queue)
 
         musicNameLabel.text = music.title
         artistNameLabel.text = music.artist
@@ -81,4 +81,5 @@ extension TimeInterval{
             return String(format: "%0.2d:%0.2d",minutes,seconds)
         }
     }
+    
 }
