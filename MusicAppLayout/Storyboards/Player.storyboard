@@ -182,7 +182,11 @@
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <items>
                                     <navigationItem title="Queue" largeTitleDisplayMode="never" id="IuT-YO-Y6E">
-                                        <barButtonItem key="rightBarButtonItem" title="Close" id="9X0-6v-ceh"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="9X0-6v-ceh">
+                                            <connections>
+                                                <action selector="onTapClose:" destination="iBn-kk-HU2" id="CZR-Ua-ldS"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -228,7 +232,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="JEj-LC-GEi"/>
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                    <state key="normal" image="heart" catalog="system"/>
                                                     <connections>
                                                         <action selector="didTapFavoriteButton:" destination="dSq-5q-CXh" eventType="touchUpInside" id="MxS-hp-vuw"/>
                                                     </connections>

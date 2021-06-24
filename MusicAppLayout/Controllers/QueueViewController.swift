@@ -15,7 +15,13 @@ class QueueViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
     
         tableView.dataSource = self
+        
     }
+    
+    @IBAction func onTapClose(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         var sections = 2
@@ -68,6 +74,8 @@ class QueueViewController: UIViewController, UITableViewDataSource {
             cell.setUp(image: musicService.getCoverImage(forItemIded: musica.id) ?? UIImage(), artist: musica.artist, musicName: musica.title, isFavorite: musicService.favoriteMusics.contains(musica))
         }
         
+        cell.music = musica
+        
         return cell
     }
     
@@ -81,19 +89,14 @@ class QueueViewController: UIViewController, UITableViewDataSource {
         return ""
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 100;
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+//        header.backgroundColor = .red
+//        return header
 //    }
 //
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
-//        let label = UILabel(frame: CGRect(x: 10, y: 5, width: tableView.frame.size.width, height: 18))
-//        label.font = UIFont.systemFont(ofSize: 14)
-//        label.text = "ahahaha"
-//        view.addSubview(label)
-//        view.backgroundColor = UIColor.gray // Set your background color
-//
-//        return view
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 100
 //    }
     
 }
