@@ -176,9 +176,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-lQ-Kcb">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-lQ-Kcb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1o3-1Y-bGf"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <items>
                                     <navigationItem title="Queue" largeTitleDisplayMode="never" id="IuT-YO-Y6E">
@@ -190,15 +192,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V91-ZQ-n9S">
-                                <rect key="frame" x="20" y="82" width="374" height="211"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V91-ZQ-n9S">
+                                <rect key="frame" x="0.0" y="44" width="414" height="764"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="queue-cell" rowHeight="59" id="dSq-5q-CXh" customClass="QueueCell" customModule="MusicAppLayout" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="59"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dSq-5q-CXh" id="wqP-wT-kBY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="73d-Us-zEb">
@@ -226,7 +227,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBF-lC-FBw">
-                                                    <rect key="frame" x="349" y="17.5" width="25" height="24"/>
+                                                    <rect key="frame" x="369" y="17.5" width="25" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="FPf-ec-pJA"/>
                                                         <constraint firstAttribute="height" constant="24" id="JEj-LC-GEi"/>
@@ -245,7 +246,7 @@
                                                 <constraint firstItem="kpu-Mr-POp" firstAttribute="centerY" secondItem="wqP-wT-kBY" secondAttribute="centerY" id="MiI-XI-xIr"/>
                                                 <constraint firstItem="QBF-lC-FBw" firstAttribute="centerY" secondItem="wqP-wT-kBY" secondAttribute="centerY" id="PL6-Ce-17F"/>
                                                 <constraint firstItem="73d-Us-zEb" firstAttribute="top" secondItem="wqP-wT-kBY" secondAttribute="topMargin" id="QX5-bd-vDe"/>
-                                                <constraint firstAttribute="trailing" secondItem="QBF-lC-FBw" secondAttribute="trailing" id="VjP-xx-0Fp"/>
+                                                <constraint firstAttribute="trailing" secondItem="QBF-lC-FBw" secondAttribute="trailing" constant="20" id="VjP-xx-0Fp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -260,6 +261,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ezt-JX-O1C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V91-ZQ-n9S" firstAttribute="top" secondItem="9bm-lQ-Kcb" secondAttribute="bottom" id="K6P-Sb-5Ll"/>
+                            <constraint firstItem="9bm-lQ-Kcb" firstAttribute="leading" secondItem="V91-ZQ-n9S" secondAttribute="leading" id="OSO-7s-QDY"/>
+                            <constraint firstItem="9bm-lQ-Kcb" firstAttribute="top" secondItem="Ezt-JX-O1C" secondAttribute="top" id="SzG-M0-gSN"/>
+                            <constraint firstItem="V91-ZQ-n9S" firstAttribute="leading" secondItem="Ezt-JX-O1C" secondAttribute="leading" id="hi6-H3-tjA"/>
+                            <constraint firstItem="9bm-lQ-Kcb" firstAttribute="trailing" secondItem="V91-ZQ-n9S" secondAttribute="trailing" id="oai-xW-ddy"/>
+                            <constraint firstItem="Ezt-JX-O1C" firstAttribute="trailing" secondItem="V91-ZQ-n9S" secondAttribute="trailing" id="sLT-Ae-cSs"/>
+                            <constraint firstItem="Ezt-JX-O1C" firstAttribute="bottom" secondItem="V91-ZQ-n9S" secondAttribute="bottom" id="vBz-Xq-l02"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Queue" largeTitleDisplayMode="never" id="6jT-de-IND">
                         <barButtonItem key="backBarButtonItem" title="        " id="r25-1J-eZd"/>
