@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumPlaylistViewController: UIViewController {
+class AlbumPlaylistViewController: UIViewController, PlayerViewControllerLike {
     
     // MARK: - Subviews
     @IBOutlet weak var albumPlaylistTableView: UITableView!
@@ -55,8 +55,18 @@ class AlbumPlaylistViewController: UIViewController {
             vc.musicCollection = musicCollection
         } else if let navVC = segue.destination as? UINavigationController, let vc = navVC.topViewController as? PlayerViewController, segue.identifier == "navigatePlayer", let musicCollection = self.album {
             vc.music = musicCollection.musics[sender as! Int]
+            vc.delegate = self
         }
     }
+    
+    func didTapLike() {
+        guard let musicService = self.musicService else {
+            return
+        }
+        self.favoriteMusics = musicService.favoriteMusics.filter { $0.artist == album?.mainPerson }
+        tableView.reloadData()
+    }
+    
     
     // MARK: - Actions
     @objc func didTapInfo() {

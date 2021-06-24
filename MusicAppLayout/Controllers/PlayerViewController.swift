@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PlayerViewControllerLike: AnyObject {
+    func didTapLike()
+}
+
 class PlayerViewController: UIViewController {
             
     @IBOutlet weak var slider: UISlider!
@@ -16,6 +20,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playerButton: UIButton!
+    
+    weak var delegate: PlayerViewControllerLike?
     
     var music: Music?
     var musicService: MusicService?
@@ -33,8 +39,8 @@ class PlayerViewController: UIViewController {
         }
         
         var isFavorite = musicService.favoriteMusics.contains(music)
-        musicService.toggleFavorite(music: music, isFavorite: isFavorite)
-        isFavorite = !isFavorite
+        musicService.toggleFavorite(music: music, isFavorite: !isFavorite)
+        isFavorite.toggle()
         favoriteButton.setImage(isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal)
         favoriteButton.tintColor = isFavorite ? .systemRed : . black
     }
@@ -62,6 +68,10 @@ class PlayerViewController: UIViewController {
         albumImageView.image = image
         
         totalTimeLabel.text = music.length.stringFromTimeInterval()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.delegate?.didTapLike()
     }
 }
 
